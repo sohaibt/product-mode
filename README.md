@@ -1,5 +1,7 @@
 # product-mode
 
+![product-mode](./banner.png)
+
 **A CLAUDE.md for product teams who ship the right thing- not just ship fast.**
 
 The PM-team counterpart to [andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills). Credit to [@karpathy](https://x.com/karpathy) for naming the failure modes that inspired this work.
@@ -47,14 +49,14 @@ Full file: [`CLAUDE.md`](./CLAUDE.md)
 **New project:**
 
 ```bash
-curl -o CLAUDE.md https://raw.githubusercontent.com/[your-handle]/product-mode/main/CLAUDE.md
+curl -o CLAUDE.md https://raw.githubusercontent.com/sohaibt/product-mode/main/CLAUDE.md
 ```
 
 **Existing CLAUDE.md (append):**
 
 ```bash
 echo "" >> CLAUDE.md
-curl https://raw.githubusercontent.com/[your-handle]/product-mode/main/CLAUDE.md >> CLAUDE.md
+curl https://raw.githubusercontent.com/sohaibt/product-mode/main/CLAUDE.md >> CLAUDE.md
 ```
 
 ---
