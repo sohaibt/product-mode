@@ -101,7 +101,7 @@ These guidelines bias toward **rigor over speed**. For trivial changes (typos, o
 
 ## License
 
-MIT. Fork, adapt, make it your team's own. If it helps, a star is appreciated but never required.
+MIT. Fork, adapt, make it your team's own. If it helps, a star is appreciated.
 
 ---
 
