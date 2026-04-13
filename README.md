@@ -77,8 +77,6 @@ I've spent 20+ years in product leadership (Booking.com, Foodics, Eneco, Tamatem
 
 Every week I see the same pattern: teams using Claude Code to ship faster- and shipping the wrong thing faster. Karpathy nailed the engineering half. This file tries to nail the product half.
 
-— Sohaib Thiab
-
 ---
 
 ## Customization
