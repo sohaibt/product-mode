@@ -1,6 +1,6 @@
 # product-mode
 
-![product-mode](./hero.png)
+![product-mode](./banner.png)
 
 **A CLAUDE.md for product teams who ship the right thing- not just ship fast.**
 
