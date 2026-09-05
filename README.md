@@ -99,6 +99,18 @@ These guidelines bias toward **rigor over speed**. For trivial changes (typos, o
 
 ---
 
+## More From the Same Author
+
+product-mode is the *thinking* layer. These are the *doing* layers:
+
+| Tool | What it does |
+|---|---|
+| [strategy-mcp](https://github.com/sohaibt/strategy-mcp) | MCP server that gives Claude 12 product strategy frameworks as tools (RICE, JTBD, assumption mapping, TAM/SAM/SOM, Wardley) |
+| [founder-mode](https://github.com/sohaibt/founder-mode) | Claude Code plugin that turns it into an AI co-founder: strategy review, competitor scan, stress-test, stakeholder updates |
+| [agent-pm](https://github.com/sohaibt/agent-pm) | Claude Code plugin with 12 commands for building AI agent products, from "should this even be an agent?" to production readiness |
+
+---
+
 ## License
 
 MIT. Fork, adapt, make it your team's own. If it helps, a star is appreciated.
