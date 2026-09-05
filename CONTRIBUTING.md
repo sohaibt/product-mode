@@ -24,6 +24,8 @@ Thanks for being here. `product-mode` is a living document, not a monument — c
 
 **For small fixes (typos, broken links, formatting):** open a PR directly. Keep it to one change per PR.
 
+**`AGENTS.md` is a byte-for-byte copy of `CLAUDE.md`.** Edit `CLAUDE.md`, then run `cp CLAUDE.md AGENTS.md` before you open the PR.
+
 **For principle-level changes:** open an issue first. Principles have a high bar — they need to prevent a real failure mode, be testable, and not overlap with an existing one.
 
 ## The Bar for a New Principle

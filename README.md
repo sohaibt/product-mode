@@ -40,7 +40,7 @@ A beautifully implemented feature for a problem that doesn't matter is still was
 
 Plus a **pre-flight checklist** (5 questions before any non-trivial change) and a **when-to-skip-this-rigor** table: because not every typo needs a decision log.
 
-Full file: [`CLAUDE.md`](./CLAUDE.md)
+Full file: [`CLAUDE.md`](./CLAUDE.md). Same file, other name: [`AGENTS.md`](./AGENTS.md).
 
 ---
 
@@ -57,6 +57,12 @@ curl -o CLAUDE.md https://raw.githubusercontent.com/sohaibt/product-mode/main/CL
 ```bash
 echo "" >> CLAUDE.md
 curl https://raw.githubusercontent.com/sohaibt/product-mode/main/CLAUDE.md >> CLAUDE.md
+```
+
+**Cursor, Codex, Copilot, Gemini CLI, or any tool that reads [AGENTS.md](https://agents.md):**
+
+```bash
+curl -o AGENTS.md https://raw.githubusercontent.com/sohaibt/product-mode/main/AGENTS.md
 ```
 
 ---
