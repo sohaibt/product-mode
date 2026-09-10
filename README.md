@@ -44,6 +44,77 @@ Full file: [`CLAUDE.md`](./CLAUDE.md). Same file, other name: [`AGENTS.md`](./AG
 
 ---
 
+## 🚀 NEW: product-mode CLI Tool
+
+In addition to the documentation, product-mode now includes a CLI tool to help you apply the principles in practice!
+
+### Installation
+
+```bash
+# From the product-mode directory
+npm install
+
+# Or install globally
+npm install -g .
+```
+
+### Usage
+
+#### Pre-flight Checklist
+Run before starting any non-trivial work:
+
+```bash
+product-mode checklist
+# Or with work description
+product-mode checklist "Add user profile feature"
+```
+
+This will prompt you through the 5-question pre-flight checklist and save your answers to `.product-mode/checklist/`.
+
+#### Decision Logging
+Log important decisions following Principle #7:
+
+```bash
+product-mode decision
+# Or with title
+product-mode decision "Choose database technology"
+```
+
+Creates a structured decision log in `.product-mode/decisions/`.
+
+#### Trivial Change Detection
+Check if your changes are trivial (can skip full rigor):
+
+```bash
+product-mode trivial
+# Or check specific files
+product-mode trivial src/app.js src/utils.js
+```
+
+Uses heuristics to detect typos, comment changes, and other trivial modifications.
+
+### Example Workflow
+
+```bash
+# 1. Think about starting work
+product-mode checklist "Implement dark mode toggle"
+# → Answers questions and saves checklist
+
+# 2. Do the work
+# ... write code ...
+
+# 3. Check if changes are trivial before committing
+product-mode trivial
+# → If non-trivial, consider running checklist again
+# → If trivial, you can proceed with lighter rigor
+
+# 4. Log important decisions
+product-mode decision "Dark mode implementation approach"
+# → Logs your choice of CSS variables vs separate stylesheet, etc.
+```
+
+---
+
 ## Install
 
 **New project:**
@@ -63,6 +134,16 @@ curl https://raw.githubusercontent.com/sohaibt/product-mode/main/CLAUDE.md >> CL
 
 ```bash
 curl -o AGENTS.md https://raw.githubusercontent.com/sohaibt/product-mode/main/AGENTS.md
+```
+
+**For the CLI tool:**
+
+```bash
+# Clone and install
+git clone https://github.com/sohaibt/product-mode
+cd product-mode
+npm install
+npm link  # or npm install -g .
 ```
 
 ---
