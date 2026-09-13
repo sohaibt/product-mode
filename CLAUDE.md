@@ -198,6 +198,16 @@ This file exists to make both less likely, at once.
 
 ---
 
+## Prior Decisions & Checklists
+
+Before any non-trivial work, read `.product-mode/decisions/` - it is the decision log from Principle 7. Do not re-decide what is already decided there unless its revisit trigger has fired.
+
+Before running a new pre-flight checklist, check `.product-mode/checklist/` for an existing one on the same topic and build on it.
+
+Reference the relevant file by path when you rely on it, so the reasoning stays traceable. Run `product-mode init` to create the folders and add this section to your own agent files.
+
+---
+
 ## License
 
 MIT. Fork, adapt, and make it your team's own.

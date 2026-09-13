@@ -60,6 +60,13 @@ npm install -g .
 
 ### Usage
 
+#### Initialize (once per project)
+```bash
+product-mode init
+```
+
+Creates `.product-mode/checklist/` and `.product-mode/decisions/`, and appends a "Prior Decisions & Checklists" section to your `CLAUDE.md` / `AGENTS.md` (if present) so agents read existing decisions before starting non-trivial work. Safe to re-run.
+
 #### Pre-flight Checklist
 Run before starting any non-trivial work:
 

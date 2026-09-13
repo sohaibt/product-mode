@@ -4,6 +4,7 @@ import { Command } from 'commander';
 import { preflightChecklist } from './commands/preflight';
 import { decisionLog } from './commands/decision';
 import { trivialChangeDetector } from './commands/trivial';
+import { init } from './commands/init';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
@@ -37,13 +38,7 @@ program
 
 program
   .command('init')
-  .description('Initialize product-mode for a project')
-  .action(() => {
-    console.log('Initializing product-mode...');
-    console.log('✓ Added product-mode to your project');
-    console.log('  Run "product-mode checklist" before starting work');
-    console.log('  Run "product-mode decision" to log important decisions');
-    console.log('  Run "product-mode trivial" to check if changes are trivial');
-  });
+  .description('Create .product-mode/ and point CLAUDE.md/AGENTS.md at it so agents read prior decisions')
+  .action(() => init());
 
 program.parse();

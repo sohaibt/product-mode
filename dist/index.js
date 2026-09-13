@@ -5,6 +5,7 @@ const commander_1 = require("commander");
 const preflight_1 = require("./commands/preflight");
 const decision_1 = require("./commands/decision");
 const trivial_1 = require("./commands/trivial");
+const init_1 = require("./commands/init");
 const fs_1 = require("fs");
 const path_1 = require("path");
 const packagePath = (0, path_1.join)(__dirname, '..', 'package.json');
@@ -31,13 +32,7 @@ program
     .action((files) => (0, trivial_1.trivialChangeDetector)(files));
 program
     .command('init')
-    .description('Initialize product-mode for a project')
-    .action(() => {
-    console.log('Initializing product-mode...');
-    console.log('✓ Added product-mode to your project');
-    console.log('  Run "product-mode checklist" before starting work');
-    console.log('  Run "product-mode decision" to log important decisions');
-    console.log('  Run "product-mode trivial" to check if changes are trivial');
-});
+    .description('Create .product-mode/ and point CLAUDE.md/AGENTS.md at it so agents read prior decisions')
+    .action(() => (0, init_1.init)());
 program.parse();
 //# sourceMappingURL=index.js.map
