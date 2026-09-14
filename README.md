@@ -34,6 +34,8 @@ Start a fresh agent session and try:
 
 Look for an explicit user and problem, visible assumptions, a limited first step, a success measure, and a reversibility check. Supply missing evidence; the file cannot know your users or business on its own.
 
+Already have project instructions? Follow the [step-by-step merge guide](./guides/add-to-existing-instructions.md) to preserve conventions, resolve conflicts, and test the result.
+
 ## See the thinking in practice
 
 These are **illustrative worked examples**, not model transcripts or measured performance claims.
