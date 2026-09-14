@@ -2,9 +2,49 @@
 
 ![product-mode](./banner.png)
 
-**A CLAUDE.md for product teams who ship the right thing- not just ship fast.**
+**Give your coding agent product judgment before it starts building.**
+
+Free, MIT-licensed instructions for framing the problem, cutting scope, naming tradeoffs, and defining success. Use the `CLAUDE.md` file or the equivalent `AGENTS.md` file with an agent that reads it. The CLI is optional.
 
 The PM-team counterpart to [andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills). Credit to [@karpathy](https://x.com/karpathy) for naming the failure modes that inspired this work.
+
+---
+
+## Quick start: add the instructions
+
+No npm install is needed for the instruction files.
+
+**If you already have a `CLAUDE.md` or `AGENTS.md`:** open [CLAUDE.md](./CLAUDE.md) or [AGENTS.md](./AGENTS.md), copy the guidelines you need into your existing file, and resolve any conflicting instructions. Keep your project context and coding conventions. Commit or back up your current file before editing.
+
+**For a project without `CLAUDE.md`:** run this from the project root. It refuses to overwrite an existing file.
+
+```bash
+if [ -e CLAUDE.md ]; then
+  echo "CLAUDE.md already exists. Merge the guidelines into it instead."
+else
+  curl -fL https://raw.githubusercontent.com/sohaibt/product-mode/main/CLAUDE.md -o CLAUDE.md
+fi
+```
+
+For an agent that reads `AGENTS.md`, use the same command with both occurrences of `CLAUDE.md` changed to `AGENTS.md`. Check your agent's instructions for supported file names and locations.
+
+Start a fresh agent session and try:
+
+> Add a dashboard to our SaaS app. Before coding, help me frame the problem, surface unknowns, choose the smallest useful scope, and define how we'll know it worked.
+
+Look for an explicit user and problem, visible assumptions, a limited first step, a success measure, and a reversibility check. Supply missing evidence; the file cannot know your users or business on its own.
+
+## See the thinking in practice
+
+These are **illustrative worked examples**, not model transcripts or measured performance claims.
+
+| Request | What the example works through |
+|---|---|
+| [“Add a dashboard”](./examples/dashboard.md) | Clarify whose decision the dashboard supports before choosing charts. |
+| [“Build a complete referral system”](./examples/referrals.md) | Separate testing referral demand from building rewards infrastructure. |
+| [“Add an onboarding checklist”](./examples/onboarding.md) | Define activation and measurement before treating checklist completion as success. |
+
+[Run your own comparison](./examples/README.md) using the same request in fresh sessions with and without the guidelines.
 
 ---
 
@@ -44,18 +84,18 @@ Full file: [`CLAUDE.md`](./CLAUDE.md). Same file, other name: [`AGENTS.md`](./AG
 
 ---
 
-## 🚀 NEW: product-mode CLI Tool
+## Optional CLI: save checklists and decisions
 
-In addition to the documentation, product-mode now includes a CLI tool to help you apply the principles in practice!
+The instruction files work on their own. The CLI provides interactive commands that save checklists and decision logs in your project.
 
 ### Installation
 
 ```bash
-# From the product-mode directory
+# Clone and build the CLI from source
+git clone https://github.com/sohaibt/product-mode
+cd product-mode
 npm install
-
-# Or install globally
-npm install -g .
+npm link
 ```
 
 ### Usage
@@ -118,39 +158,6 @@ product-mode trivial
 # 4. Log important decisions
 product-mode decision "Dark mode implementation approach"
 # → Logs your choice of CSS variables vs separate stylesheet, etc.
-```
-
----
-
-## Install
-
-**New project:**
-
-```bash
-curl -o CLAUDE.md https://raw.githubusercontent.com/sohaibt/product-mode/main/CLAUDE.md
-```
-
-**Existing CLAUDE.md (append):**
-
-```bash
-echo "" >> CLAUDE.md
-curl https://raw.githubusercontent.com/sohaibt/product-mode/main/CLAUDE.md >> CLAUDE.md
-```
-
-**Cursor, Codex, Copilot, Gemini CLI, or any tool that reads [AGENTS.md](https://agents.md):**
-
-```bash
-curl -o AGENTS.md https://raw.githubusercontent.com/sohaibt/product-mode/main/AGENTS.md
-```
-
-**For the CLI tool:**
-
-```bash
-# Clone and install
-git clone https://github.com/sohaibt/product-mode
-cd product-mode
-npm install
-npm link  # or npm install -g .
 ```
 
 ---
