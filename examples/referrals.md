@@ -2,6 +2,10 @@
 
 Illustrative worked example. This is an authored scenario, not a captured model response or evidence of a customer outcome.
 
+![Illustrative referral pilot: start with the feature request, identify unknown demand, run an opt-in pilot, and measure referred-team activation.](./media/referral-pilot.png)
+
+[Download the graphic](./media/referral-pilot.png) · [Editable SVG](./media/referral-pilot.svg). Caption: Test referral demand before building rewards infrastructure. Authored example, not a model transcript or measured outcome.
+
 ## Starting request
 
 > Build referrals with invite codes, credits, leaderboards, fraud detection, and an admin dashboard.
