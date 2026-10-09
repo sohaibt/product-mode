@@ -1,6 +1,6 @@
 {
   "name": "product-mode",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI tool for product-mode principles - helps teams ship the right thing, not just ship fast",
   "keywords": [
     "claude-code",
