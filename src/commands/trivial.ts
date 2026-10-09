@@ -1,4 +1,4 @@
-import { execSync } from 'child_process';
+import { execSync, execFileSync } from 'child_process';
 
 export function trivialChangeDetector(files: string[] = []) {
   console.log('\n🔍 Product-Mode Trivial Change Detector\n');
@@ -11,7 +11,7 @@ export function trivialChangeDetector(files: string[] = []) {
       diffOutput = execSync('git diff --cached --no-color', { encoding: 'utf8' });
     } else {
       // Check specific files
-      diffOutput = execSync(`git diff --no-color -- ${files.join(' ')}`, { encoding: 'utf8' });
+      diffOutput = execFileSync('git', ['diff', '--no-color', '--', ...files], { encoding: 'utf8' });
     }
     
     if (!diffOutput.trim()) {
