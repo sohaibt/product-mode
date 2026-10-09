@@ -142,7 +142,7 @@ product-mode trivial
 product-mode trivial src/app.js src/utils.js
 ```
 
-Uses heuristics to detect typos, comment changes, and other trivial modifications.
+Uses heuristics to detect typos, comment changes, and other trivial modifications. Checks staged changes, or unstaged ones if nothing is staged. When unsure, it says non-trivial: new code files, logic changes, and sensitive files (migrations, auth, billing, config, dependencies) always need the full checklist.
 
 ### Example Workflow
 

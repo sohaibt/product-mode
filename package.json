@@ -1,6 +1,6 @@
 {
   "name": "product-mode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool for product-mode principles - helps teams ship the right thing, not just ship fast",
   "keywords": [
     "claude-code",
@@ -60,5 +60,9 @@
     "prettier": "^3.0.0",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
   }
 }
