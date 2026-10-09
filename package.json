@@ -2,9 +2,41 @@
   "name": "product-mode",
   "version": "1.0.0",
   "description": "CLI tool for product-mode principles - helps teams ship the right thing, not just ship fast",
+  "keywords": [
+    "claude-code",
+    "claude-md",
+    "agents-md",
+    "cursor",
+    "codex",
+    "coding-agents",
+    "ai-coding",
+    "vibe-coding",
+    "product-management",
+    "product-principles",
+    "decision-log",
+    "cli"
+  ],
+  "homepage": "https://github.com/sohaibt/product-mode#readme",
+  "bugs": {
+    "url": "https://github.com/sohaibt/product-mode/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sohaibt/product-mode.git"
+  },
+  "license": "MIT",
+  "author": "Sohaib Thiab",
   "main": "dist/index.js",
   "bin": {
     "product-mode": "./dist/index.js"
+  },
+  "files": [
+    "dist/**/*.js",
+    "CLAUDE.md",
+    "AGENTS.md"
+  ],
+  "engines": {
+    "node": ">=20.19"
   },
   "scripts": {
     "build": "tsc",
@@ -13,20 +45,14 @@
     "lint": "eslint src/**/*.ts",
     "format": "prettier --write src/**/*.ts"
   },
-  "keywords": [
-    "product-management",
-    "ai-coding",
-    "claude-code",
-    "product-principles",
-    "cli"
-  ],
-  "author": "Sohaib Thiab",
-  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.0.0",
+    "inquirer": "^9.0.0"
+  },
   "devDependencies": {
     "@types/inquirer": "^9.0.10",
     "@types/jest": "^29.5.0",
     "@types/node": "^20.0.0",
-    "@types/node-fetch": "^2.6.13",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
@@ -34,11 +60,5 @@
     "prettier": "^3.0.0",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "chalk": "^5.0.0",
-    "commander": "^11.0.0",
-    "inquirer": "^9.0.0",
-    "node-fetch": "^3.3.0"
   }
 }

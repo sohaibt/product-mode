@@ -93,12 +93,14 @@ The instruction files work on their own. The CLI provides interactive commands t
 ### Installation
 
 ```bash
-# Clone and build the CLI from source
-git clone https://github.com/sohaibt/product-mode
-cd product-mode
-npm install
-npm link
+# Run without installing
+npx product-mode init
+
+# Or install it globally
+npm install -g product-mode
 ```
+
+Requires Node.js 20.19 or newer.
 
 ### Usage
 
