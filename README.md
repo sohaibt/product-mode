@@ -182,6 +182,20 @@ I've spent 20+ years in product leadership (Booking.com, Foodics, Eneco, Tamatem
 
 Every week I see the same pattern: teams using Claude Code to ship faster, and shipping the wrong thing faster. Karpathy nailed the engineering half. This file tries to nail the product half.
 
+From Karpathy: *"LLMs are exceptionally good at looping until they meet specific goals… Don't tell it what to do, give it success criteria and watch it go."*
+
+From product: *the hardest bug to fix is shipping the wrong thing, well.*
+
+---
+
+## How to Know It's Working
+
+- Fewer rebuilds because "we shipped the wrong thing."
+- Assumptions get challenged *before* code, not in review.
+- Tradeoffs appear in writing, not just in Slack threads.
+- Every shipped feature has a metric attached, checked on a date.
+- The decision log is the first thing new teammates read - and it's useful.
+
 ---
 
 ## Customization
@@ -200,7 +214,7 @@ These principles are meant to be merged with your project's own CLAUDE.md. Add p
 
 ## Tradeoff Note
 
-These guidelines bias toward **rigor over speed**. For trivial changes (typos, obvious fixes), use judgment. The file includes a *when to skip this rigor* table at the end.
+These guidelines bias toward **rigor over speed**. For trivial changes (typos, obvious fixes), use judgment. The file opens with a *when to skip this rigor* table.
 
 ---
 

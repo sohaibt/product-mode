@@ -7,6 +7,31 @@ Inspired by [Andrej Karpathy's observations](https://x.com/karpathy/status/20158
 
 ---
 
+## When to Skip This Rigor
+
+Not every change needs all seven. Use judgment:
+
+| Change type | Apply |
+|---|---|
+| Typo, comment, obvious one-liner | None - just do it |
+| Bug fix, small internal refactor | Principles 2, 3, 5 |
+| New user-facing feature | All seven |
+| Architecture, pricing, public API, data model | All seven + explicit one-way-door sign-off |
+
+The goal is reducing costly mistakes on non-trivial work - not ceremony on trivial work.
+
+---
+
+## Prior Decisions & Checklists
+
+Before any non-trivial work, read `.product-mode/decisions/` - it is the decision log from Principle 7. Do not re-decide what is already decided there unless its revisit trigger has fired.
+
+Before running a new pre-flight checklist, check `.product-mode/checklist/` for an existing one on the same topic and build on it.
+
+Reference the relevant file by path when you rely on it, so the reasoning stays traceable. Run `product-mode init` to create the folders and add this section to your own agent files.
+
+---
+
 ## Pre-Flight Checklist
 
 Before writing or requesting any non-trivial code, every box below must have an answer in the thread. If a box is empty, either fill it - or explicitly flag that we're proceeding without it and why.
@@ -14,7 +39,7 @@ Before writing or requesting any non-trivial code, every box below must have an 
 - [ ] **Problem** : Whose pain are we solving, in one sentence?
 - [ ] **Why now** : What changed? (evidence, trigger, cost of waiting)
 - [ ] **Scope** : Smallest change that tests the hypothesis
-- [ ] **Success metric** : The one number we expect to move
+- [ ] **Primary metric** : The one number we expect to move
 - [ ] **Reversibility** : One-way or two-way door?
 
 ---
@@ -123,7 +148,7 @@ Rules:
 For every user-facing or behavior-changing release, define *upfront*:
 
 - [ ] **Primary metric** : The one number we expect to move
-- [ ] **Baseline** : Current value (from data, not vibes)
+- [ ] **Baseline** : Current value (from data, not vibes). No data? Ask the human. Never invent a baseline.
 - [ ] **Expected direction & size** : e.g. +5% conversion, –20% latency
 - [ ] **Time horizon** : When we check (7 days? 30?)
 - [ ] **Guardrail metrics** : What must *not* get worse (error rate, adjacent funnels, cost-to-serve)
@@ -142,7 +167,7 @@ Rules:
 
 **Decisions compound. Capture them so future-us and new teammates aren't guessing.**
 
-For any non-trivial decision, append an ADR-lite entry:
+For any non-trivial decision, append an ADR-lite entry to `.product-mode/decisions/`:
 
 ```
 ## Decision: [short title]
@@ -160,54 +185,3 @@ Rules:
 - Always state a revisit trigger. Without one, decisions calcify into unquestioned defaults.
 
 **Test:** A new teammate reading the log understands *why* we're here, not just *where* we are.
-
----
-
-## When to Skip This Rigor
-
-Not every change needs all seven. Use judgment:
-
-| Change type | Apply |
-|---|---|
-| Typo, comment, obvious one-liner | None - just do it |
-| Bug fix, small internal refactor | Principles 2, 3, 5 |
-| New user-facing feature | All seven |
-| Architecture, pricing, public API, data model | All seven + explicit one-way-door sign-off |
-
-The goal is reducing costly mistakes on non-trivial work - not ceremony on trivial work.
-
----
-
-## How to Know It's Working
-
-- Fewer rebuilds because "we shipped the wrong thing."
-- Assumptions get challenged *before* code, not in review.
-- Tradeoffs appear in writing, not just in Slack threads.
-- Every shipped feature has a metric attached, checked on a date.
-- The decision log is the first thing new teammates read - and it's useful.
-
----
-
-## Why This Exists
-
-From Karpathy: *"LLMs are exceptionally good at looping until they meet specific goals… Don't tell it what to do, give it success criteria and watch it go."*
-
-From product: *the hardest bug to fix is shipping the wrong thing, well.*
-
-This file exists to make both less likely, at once.
-
----
-
-## Prior Decisions & Checklists
-
-Before any non-trivial work, read `.product-mode/decisions/` - it is the decision log from Principle 7. Do not re-decide what is already decided there unless its revisit trigger has fired.
-
-Before running a new pre-flight checklist, check `.product-mode/checklist/` for an existing one on the same topic and build on it.
-
-Reference the relevant file by path when you rely on it, so the reasoning stays traceable. Run `product-mode init` to create the folders and add this section to your own agent files.
-
----
-
-## License
-
-MIT. Fork, adapt, and make it your team's own.
