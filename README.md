@@ -4,7 +4,7 @@
 
 **Give your coding agent product judgment before it starts building.**
 
-Free, MIT-licensed instructions for framing the problem, cutting scope, naming tradeoffs, and defining success. Use the `CLAUDE.md` file or the equivalent `AGENTS.md` file with an agent that reads it. The CLI is optional.
+Free, MIT-licensed instructions for framing the problem, cutting scope, naming tradeoffs, and defining success. A drop-in `CLAUDE.md` / `AGENTS.md` for Claude Code, Cursor, Codex, and any coding agent that reads one. The CLI is optional.
 
 The PM-team counterpart to [andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills). Credit to [@karpathy](https://x.com/karpathy) for naming the failure modes that inspired this work.
 
@@ -64,7 +64,7 @@ But there's a failure mode it doesn't touch, the one that kills product teams:
 
 A beautifully implemented feature for a problem that doesn't matter is still waste. And in mixed PM + engineering teams working with Claude Code, that's the more expensive mistake.
 
-**product-mode** adds the missing layer: problem framing, scope discipline, tradeoff articulation, outcome measurement, and decision logging- applied *before* the code gets written.
+**product-mode** adds the missing layer: problem framing, scope discipline, tradeoff articulation, outcome measurement, and decision logging, applied *before* the code gets written.
 
 ---
 
@@ -170,7 +170,7 @@ product-mode decision "Dark mode implementation approach"
 - **Engineering teams** working alongside product, tired of re-shipping because the problem was wrong
 - **Solo founders** building SaaS who want guardrails against their own scope creep
 
-If you're shipping with AI and your bottleneck is *what to build*, not *how to build it*  this is for you.
+If you're shipping with AI and your bottleneck is *what to build*, not *how to build it*, this is for you.
 
 ---
 
@@ -178,7 +178,7 @@ If you're shipping with AI and your bottleneck is *what to build*, not *how to b
 
 I've spent 20+ years in product leadership (Booking.com, Foodics, Eneco, Tamatem Games). I am now building products, one specifically to help solve the problem of not building the right thing (not announced yet) and write about Product Management and AI-assisted product building at [Mastering Product HQ](https://masteringproducthq.substack.com).
 
-Every week I see the same pattern: teams using Claude Code to ship faster- and shipping the wrong thing faster. Karpathy nailed the engineering half. This file tries to nail the product half.
+Every week I see the same pattern: teams using Claude Code to ship faster, and shipping the wrong thing faster. Karpathy nailed the engineering half. This file tries to nail the product half.
 
 ---
 
@@ -198,7 +198,7 @@ These principles are meant to be merged with your project's own CLAUDE.md. Add p
 
 ## Tradeoff Note
 
-These guidelines bias toward **rigor over speed**. For trivial changes (typos, obvious fixes), use judgment- the file includes a *when to skip this rigor* table at the end.
+These guidelines bias toward **rigor over speed**. For trivial changes (typos, obvious fixes), use judgment. The file includes a *when to skip this rigor* table at the end.
 
 ---
 
