@@ -122,7 +122,7 @@ Rules:
 
 For every user-facing or behavior-changing release, define *upfront*:
 
-- [ ] **North-star metric** : The one number we expect to move
+- [ ] **Primary metric** : The one number we expect to move
 - [ ] **Baseline** : Current value (from data, not vibes)
 - [ ] **Expected direction & size** : e.g. +5% conversion, –20% latency
 - [ ] **Time horizon** : When we check (7 days? 30?)

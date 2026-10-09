@@ -2,7 +2,7 @@
 
 ## Next
 - **Measure the npm launch.** Check on 2026-10-16 and 2026-11-08: npm weekly downloads (baseline 0), stars (baseline 207), Google referrers (baseline 53 people / 14 days). GitHub only keeps 14 days of traffic, so record numbers in the session log each time.
-- **Announce the one-command install.** Short LinkedIn / Substack post: `npx product-mode init`.
+- **Announce the one-command install.** LinkedIn post drafted 2026-10-09 (hook: the `trivial` billing-file bug; link in first comment; image `social-preview.png`). Sohaib to post. Substack follow-up still open.
 
 ## Later
 - CI: GitHub Action that runs `npm test` on PRs.
