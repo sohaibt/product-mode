@@ -2,7 +2,7 @@
 
 ## RESUME HERE
 
-**State:** CLI is on npm (`product-mode@1.0.1`, https://www.npmjs.com/package/product-mode). README installs via `npx product-mode init`. `trivial` command rewritten and covered by `npm test`. All work pushed to `origin/main`.
+**State:** CLI is on npm (`product-mode@1.0.2`, https://www.npmjs.com/package/product-mode). `CLAUDE.md` / `AGENTS.md` restructured for agents (skip table + decision log first, human sections moved to README). All work pushed to `origin/main`, tag `v1.0.2` pushed. A product-mode page for sohaibthiab.me is being built in a separate session in the `sohaibthiabpersonal` repo.
 
 **First thing next session:** read the launch metric (see backlog "Measure the npm launch") and pick the next backlog item.
 
@@ -18,11 +18,29 @@ Working on product-mode (github.com/sohaibt/product-mode, npm: product-mode).
    Compare to the baselines in the 2026-10-09 log entry.
 4. Propose the next backlog item with a recommendation. Ask before building.
 Note: npm login/publish must run in the Mac Terminal app, not via `!` (it needs Enter + browser 2FA).
+`npm publish` E404 = not logged in; run `npm login` first.
 ```
 
 ---
 
 ## Session log
+
+### 2026-10-09 evening (MacBook Air)
+
+**Baselines:** 209 stars. npm weekly-downloads API not yet indexing the package.
+
+**Done:**
+- `CLAUDE.md` / `AGENTS.md` tightened for agents: "When to Skip" and "Prior Decisions" moved to the top; "Success metric" renamed "Primary metric" (also in the `checklist` CLI prompt); Principle 6 says ask for a baseline, never invent one; Principle 7 points at `.product-mode/decisions/`; "How to Know It's Working", "Why This Exists", "License" moved to README. 213 -> 188 lines. `init` still detects the moved section (tested).
+- Released 1.0.2 (npm + git tag `v1.0.2`). First publish attempt failed with E404 = not logged in.
+- Decided to build a product-mode page on sohaibthiab.me (aihero.dev/skills-grill-me style). Goal: Substack signups, small workshop link. Built in its own session/repo (`sohaibthiabpersonal`).
+
+## Decision: Agent file is for agents; human prose lives in README
+Date: 2026-10-09
+Context: the agent reads CLAUDE.md every turn; motivation/license sections cost context and do nothing for it; the skip table was at the end.
+Options considered: keep as is; reorder only; reorder + move human sections out.
+Choice: reorder + move out, because shorter, decision-first files get followed better.
+Reversibility: two-way door.
+Revisit trigger: users say they copy the file and miss the "why" context.
 
 ### 2026-10-09 (MacBook Air)
 
