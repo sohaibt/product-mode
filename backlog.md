@@ -7,7 +7,7 @@
 - **product-mode page on sohaibthiab.me.** In progress in the `sohaibthiabpersonal` repo session. Goal metric: Substack signups from the page. Once live, link it from the README and the GitHub "website" field.
 
 ## Later
-- CI: GitHub Action that runs `npm test` on PRs.
+- Run and publish real baseline/product-mode comparisons using `examples/uncertainty.md`, including failures and unnecessary questions. Consider an optional deeper product-review skill only after observing demand.
 - Publish from GitHub Actions with npm trusted publishing (npm is restricting 2FA-bypass tokens), so releases don't need the Terminal + browser step.
-- `trivial` limits: sensitive-file check is by path name only; `#` counts as a comment, so C `#define` edits look trivial.
+- `trivial` is advisory and automatically qualifies only small ordinary documentation edits. Consider language-aware cosmetic classification if the conservative rule creates repeated friction.
 - GitHub release for each npm version (shows in followers' feeds).

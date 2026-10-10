@@ -16,7 +16,12 @@ const program = new Command();
 program
   .name('product-mode')
   .description('CLI tool for product-mode principles - helps teams ship the right thing, not just ship fast')
-  .version(packageJson.version);
+  .version(packageJson.version)
+  .hook('preAction', (_command, actionCommand) => {
+    if (['checklist', 'decision'].includes(actionCommand.name()) && !process.stdin.isTTY) {
+      throw new Error('This command needs an interactive terminal. Run it in a terminal, or write the Markdown artifact in .product-mode/ directly.');
+    }
+  });
 
 program
   .command('checklist')
@@ -41,4 +46,7 @@ program
   .description('Create .product-mode/ and point CLAUDE.md/AGENTS.md at it so agents read prior decisions')
   .action(() => init());
 
-program.parse();
+void program.parseAsync().catch((error: unknown) => {
+  console.error('❌ Command failed:', error instanceof Error ? error.message : String(error));
+  process.exitCode = 1;
+});

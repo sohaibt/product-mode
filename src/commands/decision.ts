@@ -90,6 +90,7 @@ export async function decisionLog(title: string | undefined) {
     console.log(`📝 Saved to: ./${filename}\n`);
     
   } catch (error) {
+    process.exitCode = 1;
     if (error !== 'invalid') { // inquirer cancels with this
       console.error('❌ Error logging decision:', error);
     }

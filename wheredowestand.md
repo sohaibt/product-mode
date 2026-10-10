@@ -2,9 +2,9 @@
 
 ## RESUME HERE
 
-**State:** CLI is on npm (`product-mode@1.0.2`, https://www.npmjs.com/package/product-mode). `CLAUDE.md` / `AGENTS.md` restructured for agents (skip table + decision log first, human sections moved to README). All work pushed to `origin/main`, tag `v1.0.2` pushed. A product-mode page for sohaibthiab.me is being built in a separate session in the `sohaibthiabpersonal` repo.
+**State:** CLI is on npm (`product-mode@1.0.2`, https://www.npmjs.com/package/product-mode), tag `v1.0.2` pushed. The 2026-10-10 improvements are on `codex/product-mode-uncertainty-and-reliability` for review; no npm release has been made for them. They add proportionate uncertainty handling, conservative documentation-only `trivial` recommendations, detectable CLI failures, and CI. A product-mode page for sohaibthiab.me is being built in a separate session in the `sohaibthiabpersonal` repo.
 
-**First thing next session:** read the launch metric (see backlog "Measure the npm launch") and pick the next backlog item.
+**First thing next session:** inspect the improvement branch and CI before merging or releasing. Then read the launch metric (see backlog "Measure the npm launch"). Collect actual instruction comparisons using `examples/uncertainty.md`; authored cases and CLI tests do not establish an agent-behavior gain.
 
 Next-session startup prompt:
 
@@ -24,6 +24,19 @@ Note: npm login/publish must run in the Mac Terminal app, not via `!` (it needs 
 ---
 
 ## Session log
+
+### 2026-10-10
+
+**Approved scope:** Sohaib approved the product-mode review improvements and the product-focused adaptations from Matt Pocock's grill-me skill. Work starts from GitHub commit `8b545d2` (1.0.2), including the laptop changes.
+
+**Changes for review:**
+- Principles 1, 2, 3, 6, and 7: reuse context, sequence material questions, separate evidence from agreement, route unknowns to the appropriate validation step, stop when the next authorized action is clear, handle necessary failures, and record consequential decisions. Deeper challenge sessions remain explicitly requested.
+- `trivial`: only small changes to ordinary existing documentation may qualify for lighter rigor. Code, agent policies, sensitive files, new/deleted files, metadata changes, binaries, and unsupported diffs require review. Explicit paths check staged changes before falling back to unstaged changes.
+- CLI errors set a failing exit status; async entry-point failures are caught; interactive commands fail clearly without a terminal.
+- Added ESLint configuration and CI for Node 20.19, 22, and 24. Tests exercise semantic regressions, failed saves, and the packed executable.
+- Added six authored uncertainty evaluation cases and expanded the comparison protocol. No behavioral comparison results are claimed.
+
+**Decision:** see `.product-mode/decisions/2026-10-10-uncertainty-and-conservative-review.md`.
 
 ### 2026-10-09 evening (MacBook Air)
 
