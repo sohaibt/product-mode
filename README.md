@@ -48,6 +48,14 @@ These are **illustrative worked examples**, not model transcripts or measured pe
 
 [Run your own comparison](./examples/README.md) using the same request in fresh sessions with and without the guidelines.
 
+## Resolve uncertainty without getting stuck
+
+Product-mode checks existing context before asking questions. It asks about decisions that change the work, groups independent questions, and waits for prerequisite answers before discussing dependent choices.
+
+Different unknowns need different next steps: missing facts need evidence, product choices need a decision, UX questions may need a prototype, and outcome hypotheses need an experiment. Once the next useful step is clear, proceed with authorized, reversible work and record how remaining assumptions will be tested.
+
+Use the [evaluation cases](./examples/uncertainty.md) to check whether your agent makes those distinctions, avoids invented evidence, and keeps routine work moving. These are authored cases, not measured results. Deeper product challenge sessions should be requested explicitly.
+
 ---
 
 ## The Two Problems
@@ -111,6 +119,8 @@ product-mode init
 
 Creates `.product-mode/checklist/` and `.product-mode/decisions/`, and appends a "Prior Decisions & Checklists" section to your `CLAUDE.md` / `AGENTS.md` (if present) so agents read existing decisions before starting non-trivial work. Safe to re-run.
 
+`init` sets up artifact storage and references. Add the product guidelines separately using the quick start above.
+
 #### Pre-flight Checklist
 Run before starting any non-trivial work:
 
@@ -142,7 +152,11 @@ product-mode trivial
 product-mode trivial src/app.js src/utils.js
 ```
 
-Uses heuristics to detect typos, comment changes, and other trivial modifications. Checks staged changes, or unstaged ones if nothing is staged. When unsure, it says non-trivial: new code files, logic changes, and sensitive files (migrations, auth, billing, config, dependencies) always need the full checklist.
+Only small edits to existing ordinary documentation (`.md`, `.txt`, `.rst`, `.adoc`; at most 10 added/deleted lines across the diff) can qualify for lighter rigor. Code, executable Markdown (`.mdx`), agent instructions, sensitive files, new/deleted files, renames, mode changes, binary files, and unsupported diffs require review. Even a short string edit or whitespace change can alter behavior.
+
+Checks staged changes first, or unstaged changes if no matching changes are staged. Explicit file paths use the same rule. Untracked files are not included. The result is advisory: use the guidelines' change-type table to choose the appropriate rigor. A small bug fix can use Principles 2, 3, 5; new features and costly commitments need the full checklist.
+
+`checklist` and `decision` require an interactive terminal. Agents can write Markdown entries directly in the same folders. Command failures exit with a nonzero status; a successful `trivial` assessment exits with zero for either recommendation.
 
 ### Example Workflow
 
@@ -215,6 +229,8 @@ These principles are meant to be merged with your project's own CLAUDE.md. Add p
 ## Tradeoff Note
 
 These guidelines bias toward **rigor over speed**. For trivial changes (typos, obvious fixes), use judgment. The file opens with a *when to skip this rigor* table.
+
+The uncertainty guidance draws on Matt Pocock's [grill-me / grilling skills](https://github.com/mattpocock/skills) and [explanation of when to prototype](https://www.aihero.dev/skills-grill-me), adapted for product evidence, scope, and outcome validation.
 
 ---
 

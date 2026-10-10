@@ -70,6 +70,7 @@ export async function preflightChecklist(workDescription?: string) {
     console.log('Remember to refer back to this as you work.');
     
   } catch (error) {
+    process.exitCode = 1;
     if (error !== 'invalid') { // inquirer cancels with this
       console.error('❌ Error running checklist:', error);
     }

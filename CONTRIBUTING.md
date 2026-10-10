@@ -28,6 +28,12 @@ Thanks for being here. `product-mode` is a living document, not a monument — c
 
 **For principle-level changes:** open an issue first. Principles have a high bar — they need to prevent a real failure mode, be testable, and not overlap with an existing one.
 
+## CLI Checks
+
+Use Node.js 20.19 or newer. Run `npm ci`, `npm run lint`, and `npm test -- --runInBand`. Tests build the CLI first and exercise classification, command failures, and startup from the npm tarball. Also run `cmp CLAUDE.md AGENTS.md` after instruction edits. CI runs these checks on Node 20.19, 22, and 24.
+
+For instruction changes, use the [comparison protocol](./examples/README.md) and [uncertainty cases](./examples/uncertainty.md). Automated CLI checks do not establish that an agent makes better product decisions.
+
 ## The Bar for a New Principle
 
 Before proposing one, check:

@@ -55,6 +55,7 @@ Rules:
 - If multiple user segments are affected, name whose need takes priority and why.
 - Check for prior art in the codebase before designing new.
 - Distinguish *symptom* ("button is slow") from *problem* ("users abandon checkout").
+- Define ambiguous product terms such as *user*, *customer*, and *activation* using the project's existing context. Resolve the user and problem before choosing scope; resolve the intended outcome before choosing a metric.
 
 **Test:** A non-author can restate who we're helping and what changes for them.
 
@@ -66,12 +67,24 @@ Rules:
 
 Rules:
 - List assumptions explicitly before coding. Mark each: *validated / assumed / unknown*.
-- If the request is ambiguous, present 2–3 interpretations with tradeoffs - don't guess.
+- Before asking, inspect relevant project context, prior decisions, code, and accessible data. Ask for evidence you cannot access; never invent it.
+- Ask only questions whose answers materially change the problem, scope, success criteria, or a costly commitment. Group independent questions in a small batch; wait for prerequisite answers before asking dependent questions.
+- For product choices, offer a recommendation with its tradeoffs. For factual questions, request evidence without suggesting the answer. Agreement with a proposed scope does not validate customer demand.
 - Name confidence on non-obvious choices: *high / medium / low*.
 - Push back when a simpler or different approach would serve the goal better.
-- Stop on confusion. Name what's unclear and ask.
+- Match each unknown to a way to resolve it:
 
-**Test:** A reviewer can point to each assumption and confirm "yes, we agreed on that."
+| Unknown | Next step |
+|---|---|
+| Missing fact: "Where do users drop off?" | Inspect accessible analytics or request the missing evidence. |
+| Product choice: "Which segment takes priority?" | Present the tradeoff and get the needed decision. |
+| UX question: "Will this interaction make sense?" | Propose the smallest prototype users can react to. |
+| Outcome hypothesis: "Will this improve activation?" | Define a small experiment with a success signal and guardrails. |
+
+- Stop questioning when the next useful step is clear and costly commitments have agreement. Continue authorized, reversible work while recording unresolved assumptions, how to test them, and when to revisit them. Pause the affected work when a missing answer changes correctness or requires sign-off.
+- Run a deeper product challenge session only when the user asks for one. Keep routine work proportional to its risk.
+
+**Test:** A reviewer can distinguish evidence from agreement and see how each material unknown will be resolved. Questions change a decision or identify a validation step.
 
 ---
 
@@ -83,7 +96,7 @@ Scope rules:
 - Cut to the smallest version that tests the hypothesis - not the full vision.
 - No features beyond what was asked. No "while we're here."
 - No abstractions for single-use code.
-- No configurability, flexibility, or error handling that wasn't explicitly required.
+- Avoid speculative configurability and abstractions. Handle the failures necessary for the requested behavior to work safely and reliably.
 
 Edit rules:
 - Touch only what the request requires.
@@ -148,7 +161,7 @@ Rules:
 For every user-facing or behavior-changing release, define *upfront*:
 
 - [ ] **Primary metric** : The one number we expect to move
-- [ ] **Baseline** : Current value (from data, not vibes). No data? Ask the human. Never invent a baseline.
+- [ ] **Baseline** : Current value from accessible data. If unavailable, request the evidence or define how to establish it. Never invent a baseline.
 - [ ] **Expected direction & size** : e.g. +5% conversion, –20% latency
 - [ ] **Time horizon** : When we check (7 days? 30?)
 - [ ] **Guardrail metrics** : What must *not* get worse (error rate, adjacent funnels, cost-to-serve)
@@ -182,6 +195,7 @@ Revisit trigger: [metric / date / condition that reopens this]
 Rules:
 - **Two-way door** (easily reversible): decide fast, move on.
 - **One-way door** (costly to undo - public APIs, data schemas, pricing, brand, core UX): require written tradeoffs (Principle 4) and explicit sign-off before proceeding.
+- Record decisions that commit meaningful resources, resolve a real tradeoff, or would surprise a future reader. Reuse an existing entry for the same decision; routine implementation choices can stay in the task's checklist.
 - Always state a revisit trigger. Without one, decisions calcify into unquestioned defaults.
 
 **Test:** A new teammate reading the log understands *why* we're here, not just *where* we are.
