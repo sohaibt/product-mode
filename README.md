@@ -8,6 +8,14 @@ Free, MIT-licensed instructions for framing the problem, cutting scope, naming t
 
 The PM-team counterpart to [andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills). Credit to [@karpathy](https://x.com/karpathy) for naming the failure modes that inspired this work.
 
+## Recent improvements
+
+- **Questions that move the work forward:** inspect existing context first, ask about material decisions, and match unknowns to evidence, a decision, a prototype, or an experiment. Continue authorized, reversible work once the next useful step is clear.
+- **More conservative CLI advice:** only small edits to existing ordinary documentation can automatically qualify as trivial. Code and agent instructions require review; failed commands return a nonzero status, and interactive commands explain when a terminal is required.
+- **Checks you can inspect:** [six authored evaluation cases](./examples/uncertainty.md) for the product guidance, plus [CI](./.github/workflows/ci.yml) covering lint, instruction-file consistency, and CLI/package tests on Node 20.19, 22, and 24. The cases are prompts for comparison, not measured evidence of better agent decisions.
+
+The updated instruction files are available now through the quick start below. The CLI fixes are merged on GitHub; see [CLI release availability](#installation) before installing from npm.
+
 ---
 
 ## Quick start: add the instructions
@@ -99,6 +107,8 @@ Full file: [`CLAUDE.md`](./CLAUDE.md). Same file, other name: [`AGENTS.md`](./AG
 The instruction files work on their own. The CLI provides interactive commands that save checklists and decision logs in your project.
 
 ### Installation
+
+**Release availability:** npm currently serves `1.0.2`. The CLI fixes from [PR #4](https://github.com/sohaibt/product-mode/pull/4) are merged on GitHub `main` and await a new npm release. The CLI behavior documented below describes `main`; `npx` and global installs will receive the fixes after that release. The quick-start downloads of `CLAUDE.md` and `AGENTS.md` already include the updated guidance.
 
 ```bash
 # Run without installing
@@ -228,7 +238,7 @@ These principles are meant to be merged with your project's own CLAUDE.md. Add p
 
 ## Tradeoff Note
 
-These guidelines bias toward **rigor over speed**. For trivial changes (typos, obvious fixes), use judgment. The file opens with a *when to skip this rigor* table.
+These guidelines scale review to the cost of being wrong. Routine fixes can proceed with lighter rigor; new features and costly commitments need more evidence and explicit tradeoffs. Use the file's *when to skip this rigor* table, and stop questioning once the next authorized, useful step is clear.
 
 The uncertainty guidance draws on Matt Pocock's [grill-me / grilling skills](https://github.com/mattpocock/skills) and [explanation of when to prototype](https://www.aihero.dev/skills-grill-me), adapted for product evidence, scope, and outcome validation.
 
