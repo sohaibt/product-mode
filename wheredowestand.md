@@ -2,9 +2,9 @@
 
 ## RESUME HERE
 
-**State:** CLI is on npm (`product-mode@1.0.2`, https://www.npmjs.com/package/product-mode), tag `v1.0.2` pushed. The 2026-10-10 improvements are on `codex/product-mode-uncertainty-and-reliability` for review; no npm release has been made for them. They add proportionate uncertainty handling, conservative documentation-only `trivial` recommendations, detectable CLI failures, and CI. A product-mode page for sohaibthiab.me is being built in a separate session in the `sohaibthiabpersonal` repo.
+**State:** `product-mode@1.1.0` is on npm (tag `v1.1.0` pushed). 1.0.3 shipped the 2026-10-10 CLI fixes (PR #4). 1.1.0 adds the `/preflight` and `/decision` slash commands (PR #6): `init` copies `skills/*/SKILL.md` into `.claude/skills/` (Claude Code) and `.agents/skills/` (Codex uses `$preflight`; Cursor reads the same folder, not tested live). Decision: `.product-mode/decisions/2026-11-07-slash-commands-via-init.md`.
 
-**First thing next session:** inspect the improvement branch and CI before merging or releasing. Then read the launch metric (see backlog "Measure the npm launch"). Collect actual instruction comparisons using `examples/uncertainty.md`; authored cases and CLI tests do not establish an agent-behavior gain.
+**First thing next session:** check whether Sohaib has used `/preflight` in his own projects (the decision's revisit trigger is 2 weeks after 1.1.0, so 2026-11-21). Investigate the star drop (209 on 2026-10-09 to 176 on 2026-11-07). Then pick the next backlog item.
 
 Next-session startup prompt:
 
@@ -15,8 +15,9 @@ Working on product-mode (github.com/sohaibt/product-mode, npm: product-mode).
 3. Check the launch numbers: `gh api repos/sohaibt/product-mode --jq .stargazers_count`,
    `gh api repos/sohaibt/product-mode/traffic/popular/referrers`, and npm weekly downloads
    (`curl -s https://api.npmjs.org/downloads/point/last-week/product-mode`).
-   Compare to the baselines in the 2026-10-09 log entry.
-4. Propose the next backlog item with a recommendation. Ask before building.
+   Compare to the 2026-11-07 log entry (176 stars, 11 downloads/week).
+4. Ask me whether I used /preflight or /decision in my own projects since 1.1.0.
+5. Propose the next backlog item with a recommendation. Ask before building.
 Note: npm login/publish must run in the Mac Terminal app, not via `!` (it needs Enter + browser 2FA).
 `npm publish` E404 = not logged in; run `npm login` first.
 ```
@@ -24,6 +25,15 @@ Note: npm login/publish must run in the Mac Terminal app, not via `!` (it needs 
 ---
 
 ## Session log
+
+### 2026-11-07
+
+**Numbers:** 176 stars (down from 209 on 2026-10-09; cause unknown, possibly GitHub removing spam accounts tied to the aviso.bz promo traffic). npm: 11 downloads in the week 2026-10-31 to 2026-11-06.
+
+**Done:**
+- Pulled PRs #4 and #5 (merged on the Mac Mini). Released `1.0.3` to npm with the merged CLI fixes; README no longer says they await a release.
+- Built and shipped `/preflight` and `/decision` slash commands (PR #6, released as `1.1.0`). They are SKILL.md files with `disable-model-invocation: true`; `init` installs them for Claude Code and `.agents/skills/` agents and never overwrites an existing skill of the same name. `trivial` stays CLI-only.
+- Verified live: Claude Code `/preflight` drafted the boxes, marked guesses *assumed*, asked 3 questions, and waited to save; `/decision` saved a file in CLI format. Codex `$preflight` worked. Cursor not tested.
 
 ### 2026-10-10
 
