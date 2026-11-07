@@ -36,6 +36,7 @@ test('the npm tarball contains the executable and identical instruction files', 
   expect(packageFiles).toContain('AGENTS.md');
   expect(packageFiles).toContain('skills/preflight/SKILL.md');
   expect(packageFiles).toContain('skills/decision/SKILL.md');
+  expect(packageFiles).toContain('skills/product-review/SKILL.md');
   expect(readFileSync(join(workspace, 'package', 'CLAUDE.md'))).toEqual(readFileSync(join(workspace, 'package', 'AGENTS.md')));
   expect(packageFiles.some(file => file.startsWith('src/') || file.startsWith('test/'))).toBe(false);
 });
@@ -68,7 +69,7 @@ test('init installs the slash commands for every agent without overwriting exist
   writeFileSync(custom, 'my own decision skill\n');
   const result = run(['init'], project);
   expect(result.status).toBe(0);
-  for (const skill of ['preflight', 'decision']) {
+  for (const skill of ['preflight', 'decision', 'product-review']) {
     const shipped = readFileSync(join(workspace, 'package', 'skills', skill, 'SKILL.md'));
     expect(readFileSync(join(project, '.claude', 'skills', skill, 'SKILL.md'))).toEqual(shipped);
   }
