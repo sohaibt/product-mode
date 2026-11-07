@@ -14,7 +14,7 @@ The PM-team counterpart to [andrej-karpathy-skills](https://github.com/forrestch
 - **More conservative CLI advice:** only small edits to existing ordinary documentation can automatically qualify as trivial. Code and agent instructions require review; failed commands return a nonzero status, and interactive commands explain when a terminal is required.
 - **Checks you can inspect:** [six authored evaluation cases](./examples/uncertainty.md) for the product guidance, plus [CI](./.github/workflows/ci.yml) covering lint, instruction-file consistency, and CLI/package tests on Node 20.19, 22, and 24. The cases are prompts for comparison, not measured evidence of better agent decisions.
 
-The updated instruction files are available now through the quick start below. The CLI fixes are merged on GitHub; see [CLI release availability](#installation) before installing from npm.
+The updated instruction files are available through the quick start below. The CLI fixes ship in `product-mode@1.0.3` on npm.
 
 ---
 
@@ -107,8 +107,6 @@ Full file: [`CLAUDE.md`](./CLAUDE.md). Same file, other name: [`AGENTS.md`](./AG
 The instruction files work on their own. The CLI provides interactive commands that save checklists and decision logs in your project.
 
 ### Installation
-
-**Release availability:** npm currently serves `1.0.2`. The CLI fixes from [PR #4](https://github.com/sohaibt/product-mode/pull/4) are merged on GitHub `main` and await a new npm release. The CLI behavior documented below describes `main`; `npx` and global installs will receive the fixes after that release. The quick-start downloads of `CLAUDE.md` and `AGENTS.md` already include the updated guidance.
 
 ```bash
 # Run without installing
