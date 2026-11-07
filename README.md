@@ -10,6 +10,7 @@ The PM-team counterpart to [andrej-karpathy-skills](https://github.com/forrestch
 
 ## Recent improvements
 
+- **Slash commands in the agent chat (1.1.0):** `product-mode init` installs `/preflight` and `/decision`, so the agent drafts the checklist or decision record from the conversation and saves it to `.product-mode/`. Works in Claude Code, Codex (`$preflight`), and Cursor. See [Usage](#initialize-once-per-project).
 - **Questions that move the work forward:** inspect existing context first, ask about material decisions, and match unknowns to evidence, a decision, a prototype, or an experiment. Continue authorized, reversible work once the next useful step is clear.
 - **More conservative CLI advice:** only small edits to existing ordinary documentation can automatically qualify as trivial. Code and agent instructions require review; failed commands return a nonzero status, and interactive commands explain when a terminal is required.
 - **Checks you can inspect:** [six authored evaluation cases](./examples/uncertainty.md) for the product guidance, plus [CI](./.github/workflows/ci.yml) covering lint, instruction-file consistency, and CLI/package tests on Node 20.19, 22, and 24. The cases are prompts for comparison, not measured evidence of better agent decisions.
