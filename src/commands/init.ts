@@ -1,5 +1,7 @@
-import { existsSync, mkdirSync, readFileSync, appendFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, appendFileSync, copyFileSync } from 'fs';
 import { join } from 'path';
+
+const SKILLS = ['preflight', 'decision'];
 
 export const PRIOR_ARTIFACTS_SECTION = `
 ## Prior Decisions & Checklists
@@ -33,6 +35,23 @@ export function init(): void {
     console.log(`✓ Added "Prior Decisions & Checklists" section to ${file}`);
   }
 
+  // .claude/skills = Claude Code; .agents/skills = Codex and Cursor.
+  const shipped = join(__dirname, '..', '..', 'skills');
+  for (const root of ['.claude', '.agents']) {
+    for (const skill of SKILLS) {
+      const target = join(root, 'skills', skill, 'SKILL.md');
+      if (existsSync(join(cwd, target))) {
+        console.log(`- ${target} already exists, left unchanged`);
+        continue;
+      }
+      mkdirSync(join(cwd, root, 'skills', skill), { recursive: true });
+      copyFileSync(join(shipped, skill, 'SKILL.md'), join(cwd, target));
+      console.log(`✓ Added /${skill} command (${target})`);
+    }
+  }
+
+  console.log('\nType /preflight in your agent chat before starting work');
+  console.log('Type /decision in your agent chat to log important decisions');
   console.log('\nRun "product-mode checklist" before starting work');
   console.log('Run "product-mode decision" to log important decisions');
   console.log('Run "product-mode trivial" to check if changes are trivial');

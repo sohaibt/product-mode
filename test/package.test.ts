@@ -34,6 +34,8 @@ test('the npm tarball contains the executable and identical instruction files', 
   expect(packageFiles).toContain('dist/index.js');
   expect(packageFiles).toContain('CLAUDE.md');
   expect(packageFiles).toContain('AGENTS.md');
+  expect(packageFiles).toContain('skills/preflight/SKILL.md');
+  expect(packageFiles).toContain('skills/decision/SKILL.md');
   expect(readFileSync(join(workspace, 'package', 'CLAUDE.md'))).toEqual(readFileSync(join(workspace, 'package', 'AGENTS.md')));
   expect(packageFiles.some(file => file.startsWith('src/') || file.startsWith('test/'))).toBe(false);
 });
@@ -57,6 +59,23 @@ test('init preserves existing instructions and is safe to repeat', () => {
   expect(once).toContain('## Prior Decisions & Checklists');
   expect(run(['init'], project).status).toBe(0);
   expect(readFileSync(join(project, 'CLAUDE.md'), 'utf8')).toBe(once);
+});
+
+test('init installs the slash commands for every agent without overwriting existing ones', () => {
+  const project = join(workspace, 'skills-project');
+  const custom = join(project, '.agents', 'skills', 'decision', 'SKILL.md');
+  mkdirSync(join(project, '.agents', 'skills', 'decision'), { recursive: true });
+  writeFileSync(custom, 'my own decision skill\n');
+  const result = run(['init'], project);
+  expect(result.status).toBe(0);
+  for (const skill of ['preflight', 'decision']) {
+    const shipped = readFileSync(join(workspace, 'package', 'skills', skill, 'SKILL.md'));
+    expect(readFileSync(join(project, '.claude', 'skills', skill, 'SKILL.md'))).toEqual(shipped);
+  }
+  expect(readFileSync(join(project, '.agents', 'skills', 'preflight', 'SKILL.md'))).toEqual(
+    readFileSync(join(workspace, 'package', 'skills', 'preflight', 'SKILL.md')));
+  expect(readFileSync(custom, 'utf8')).toBe('my own decision skill\n');
+  expect(result.stdout).toContain('.agents/skills/decision/SKILL.md already exists');
 });
 
 test.each(['checklist', 'decision'])('%s fails clearly without an interactive terminal', command => {
