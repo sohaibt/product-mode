@@ -130,14 +130,15 @@ Creates `.product-mode/checklist/` and `.product-mode/decisions/`, and appends a
 
 `init` sets up artifact storage and references. Add the product guidelines separately using the quick start above.
 
-`init` also installs two slash commands for your agent chat. It never overwrites a command that already exists.
+`init` also installs three slash commands for your agent chat. It never overwrites a command that already exists.
 
 | Command | What the agent does |
 |---|---|
 | `/preflight [work]` | Drafts the pre-flight checklist from the conversation, asks only about missing answers, and saves it to `.product-mode/checklist/` |
 | `/decision [title]` | Drafts a decision record from the conversation and saves it to `.product-mode/decisions/` |
+| `/product-review [plan, file, or PR]` | Checks a plan or code change against the seven principles and reports each gap with its evidence and smallest fix. Read-only |
 
-The commands are installed in `.claude/skills/` (Claude Code) and `.agents/skills/` (Codex and Cursor). In Codex, type `$preflight` and `$decision` instead. Commit them so your team gets them too.
+The commands are installed in `.claude/skills/` (Claude Code) and `.agents/skills/` (Codex and Cursor). In Codex, type `$` instead of `/` (for example, `$preflight`). Commit them so your team gets them too.
 
 #### Pre-flight Checklist
 Run before starting any non-trivial work:

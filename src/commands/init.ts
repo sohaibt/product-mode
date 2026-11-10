@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, appendFileSync, copyFileSync } from 'fs';
 import { join } from 'path';
 
-const SKILLS = ['preflight', 'decision'];
+const SKILLS = ['preflight', 'decision', 'product-review'];
 
 export const PRIOR_ARTIFACTS_SECTION = `
 ## Prior Decisions & Checklists
@@ -52,6 +52,7 @@ export function init(): void {
 
   console.log('\nType /preflight in your agent chat before starting work');
   console.log('Type /decision in your agent chat to log important decisions');
+  console.log('Type /product-review in your agent chat to check a plan or change before you build or merge');
   console.log('\nRun "product-mode checklist" before starting work');
   console.log('Run "product-mode decision" to log important decisions');
   console.log('Run "product-mode trivial" to check if changes are trivial');
