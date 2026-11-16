@@ -44,7 +44,8 @@ program
 program
   .command('init')
   .description('Create .product-mode/ and point CLAUDE.md/AGENTS.md at it so agents read prior decisions')
-  .action(() => init());
+  .option('--upgrade-skill <skill>', 'Replace an installed skill with the packaged version (supported: product-review)')
+  .action((options: { upgradeSkill?: string }) => init(options.upgradeSkill));
 
 void program.parseAsync().catch((error: unknown) => {
   console.error('❌ Command failed:', error instanceof Error ? error.message : String(error));

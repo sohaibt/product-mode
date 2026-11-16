@@ -79,6 +79,51 @@ test('init installs the slash commands for every agent without overwriting exist
   expect(result.stdout).toContain('.agents/skills/decision/SKILL.md already exists');
 });
 
+test('init upgrades only product-review when explicitly requested', () => {
+  const project = join(workspace, 'upgrade-skill-project');
+  const agentRoots = ['.claude', '.agents'];
+  const skillPath = (agentRoot: string, skill: string) => join(project, agentRoot, 'skills', skill, 'SKILL.md');
+
+  for (const agentRoot of agentRoots) {
+    for (const skill of ['decision', 'product-review']) {
+      mkdirSync(join(project, agentRoot, 'skills', skill), { recursive: true });
+      writeFileSync(skillPath(agentRoot, skill), skill === 'product-review' ? 'outdated review' : `custom ${agentRoot} decision`);
+    }
+  }
+
+  const initial = run(['init'], project);
+  expect(initial.status).toBe(0);
+  for (const agentRoot of agentRoots) {
+    expect(readFileSync(skillPath(agentRoot, 'product-review'), 'utf8')).toBe('outdated review');
+  }
+
+  const instructions = join(project, 'CLAUDE.md');
+  writeFileSync(instructions, '# Local instructions\n');
+  writeFileSync(skillPath('.claude', 'preflight'), 'custom .claude preflight');
+  rmSync(skillPath('.agents', 'preflight'));
+
+  const result = run(['init', '--upgrade-skill', 'product-review'], project);
+  expect(result.status).toBe(0);
+  expect(result.stdout).toContain('will replace local changes');
+  const shippedReview = readFileSync(join(workspace, 'package', 'skills', 'product-review', 'SKILL.md'));
+  for (const agentRoot of agentRoots) {
+    expect(readFileSync(skillPath(agentRoot, 'product-review'))).toEqual(shippedReview);
+    expect(readFileSync(skillPath(agentRoot, 'decision'), 'utf8')).toBe(`custom ${agentRoot} decision`);
+  }
+  expect(readFileSync(skillPath('.claude', 'preflight'), 'utf8')).toBe('custom .claude preflight');
+  expect(existsSync(skillPath('.agents', 'preflight'))).toBe(false);
+  expect(readFileSync(instructions, 'utf8')).toBe('# Local instructions\n');
+});
+
+test('init rejects unsupported skill upgrades before changing the project', () => {
+  const project = join(workspace, 'invalid-skill-upgrade-project');
+  mkdirSync(project);
+  const result = run(['init', '--upgrade-skill', 'preflight'], project);
+  expect(result.status).toBe(1);
+  expect(result.stderr).toContain('The only supported upgrade is "product-review"');
+  expect(existsSync(join(project, '.product-mode'))).toBe(false);
+});
+
 test.each(['checklist', 'decision'])('%s fails clearly without an interactive terminal', command => {
   const result = run([command]);
   expect(result.status).toBe(1);

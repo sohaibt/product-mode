@@ -13,6 +13,8 @@ The worked examples and [uncertainty evaluation cases](./uncertainty.md) in this
 
 For a no-code first-response test, append the same sentence to each request: “Do not write or modify code; respond with your proposed next step only.”
 
+To evaluate `/product-review` itself, use the [product-review cases](./product-review.md). They cover contradictory artifacts, unvalidated product claims, early-stage plans, and proportionate bug-fix reviews.
+
 ## Share what happened
 
 If you try this, a useful issue includes the request, agent/model/version, relevant instructions, the response, and what helped or added unnecessary friction. Remove private project details before sharing. [Open an issue](https://github.com/sohaibt/product-mode/issues).

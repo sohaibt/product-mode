@@ -10,6 +10,7 @@ The PM-team counterpart to [andrej-karpathy-skills](https://github.com/forrestch
 
 ## Recent improvements
 
+- **Whole-product reviews and skill upgrades (1.3.0):** `/product-review` now checks products and repositories for stage-appropriate readiness, source traceability, cross-artifact consistency, outcome validation, and measurable success. Existing installations can update only that skill with `product-mode init --upgrade-skill product-review`.
 - **Slash commands in the agent chat (1.1.0):** `product-mode init` installs `/preflight` and `/decision`, so the agent drafts the checklist or decision record from the conversation and saves it to `.product-mode/`. Works in Claude Code, Codex (`$preflight`), and Cursor. See [Usage](#initialize-once-per-project).
 - **Questions that move the work forward:** inspect existing context first, ask about material decisions, and match unknowns to evidence, a decision, a prototype, or an experiment. Continue authorized, reversible work once the next useful step is clear.
 - **More conservative CLI advice:** only small edits to existing ordinary documentation can automatically qualify as trivial. Code and agent instructions require review; failed commands return a nonzero status, and interactive commands explain when a terminal is required.
@@ -130,13 +131,21 @@ Creates `.product-mode/checklist/` and `.product-mode/decisions/`, and appends a
 
 `init` sets up artifact storage and references. Add the product guidelines separately using the quick start above.
 
-`init` also installs three slash commands for your agent chat. It never overwrites a command that already exists.
+`init` also installs three slash commands for your agent chat. By default, it never overwrites a command that already exists.
+
+To replace an installed `/product-review` with the packaged version, run:
+
+```bash
+product-mode init --upgrade-skill product-review
+```
+
+This replaces local edits to `product-review` in both `.claude/skills/` and `.agents/skills/`; other skills and instruction files remain unchanged.
 
 | Command | What the agent does |
 |---|---|
 | `/preflight [work]` | Drafts the pre-flight checklist from the conversation, asks only about missing answers, and saves it to `.product-mode/checklist/` |
 | `/decision [title]` | Drafts a decision record from the conversation and saves it to `.product-mode/decisions/` |
-| `/product-review [plan, file, or PR]` | Checks a plan or code change against the seven principles and reports each gap with its evidence and smallest fix. Read-only |
+| `/product-review [plan, file, PR, or product]` | Checks a plan, code change, or product/repository against the seven principles and reports each gap with its evidence and smallest fix. Read-only |
 
 The commands are installed in `.claude/skills/` (Claude Code) and `.agents/skills/` (Codex and Cursor). In Codex, type `$` instead of `/` (for example, `$preflight`). Commit them so your team gets them too.
 
