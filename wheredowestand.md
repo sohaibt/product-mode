@@ -2,9 +2,9 @@
 
 ## RESUME HERE
 
-**State:** `product-mode@1.1.0` is on npm (tag `v1.1.0` pushed). 1.0.3 shipped the 2026-10-10 CLI fixes (PR #4). 1.1.0 adds the `/preflight` and `/decision` slash commands (PR #6): `init` copies `skills/*/SKILL.md` into `.claude/skills/` (Claude Code) and `.agents/skills/` (Codex uses `$preflight`; Cursor reads the same folder, not tested live). Decision: `.product-mode/decisions/2026-11-07-slash-commands-via-init.md`.
+**State:** `product-mode@1.3.0` is tagged (`v1.3.0`) and pushed. Publish to npm is pending (Sohaib runs `npm publish` in Terminal). 1.2.0 (on npm since 2026-11-14) added `/product-review` (PR #7). 1.3.0 makes `/product-review` stronger for whole-product reviews and adds `product-mode init --upgrade-skill product-review`. Decision: `.product-mode/decisions/2026-11-07-slash-commands-via-init.md` (updates 2026-11-07, 11-14, 11-16).
 
-**First thing next session:** check whether Sohaib has used `/preflight` in his own projects (the decision's revisit trigger is 2 weeks after 1.1.0, so 2026-11-21). Investigate the star drop (209 on 2026-10-09 to 176 on 2026-11-07). Then pick the next backlog item.
+**First thing next session:** confirm 1.3.0 is on npm (`npm view product-mode version`). Do the 2026-11-21 dogfood revisit: did Sohaib use `/preflight`, `/decision`, or `/product-review` in his own projects? Find out what caused the download jump (11 to 236/week). Stars keep dropping (209 to 176 to 162).
 
 Next-session startup prompt:
 
@@ -12,12 +12,14 @@ Next-session startup prompt:
 Working on product-mode (github.com/sohaibt/product-mode, npm: product-mode).
 1. git fetch and compare to origin/main; pull --ff-only if behind.
 2. Read wheredowestand.md (RESUME HERE) and backlog.md.
-3. Check the launch numbers: `gh api repos/sohaibt/product-mode --jq .stargazers_count`,
-   `gh api repos/sohaibt/product-mode/traffic/popular/referrers`, and npm weekly downloads
-   (`curl -s https://api.npmjs.org/downloads/point/last-week/product-mode`).
-   Compare to the 2026-11-07 log entry (176 stars, 11 downloads/week).
-4. Ask me whether I used /preflight or /decision in my own projects since 1.1.0.
-5. Propose the next backlog item with a recommendation. Ask before building.
+3. Check `npm view product-mode version` is 1.3.0. If not, remind me to publish from Terminal.
+4. Check the numbers: `gh api repos/sohaibt/product-mode --jq .stargazers_count`,
+   `gh api repos/sohaibt/product-mode/traffic/popular/referrers`, and
+   `curl -s https://api.npmjs.org/downloads/point/last-week/product-mode`.
+   Compare to the 2026-11-20 log entry (162 stars, 236 downloads/week).
+5. Dogfood revisit (due 2026-11-21): ask me whether I used /preflight, /decision,
+   or /product-review in my own projects. If not, find out why before building more commands.
+6. Propose the next backlog item with a recommendation. Ask before building.
 Note: npm login/publish must run in the Mac Terminal app, not via `!` (it needs Enter + browser 2FA).
 `npm publish` E404 = not logged in; run `npm login` first.
 ```
@@ -25,6 +27,15 @@ Note: npm login/publish must run in the Mac Terminal app, not via `!` (it needs 
 ---
 
 ## Session log
+
+### 2026-11-20 (MacBook Air)
+
+**Numbers:** 162 stars (176 on 2026-11-07), 6 forks. npm: 236 downloads in the week 2026-11-12 to 2026-11-18 (was 11). Cause of the jump not checked.
+
+**Done:**
+- Caught up: 1.2.0 (`/product-review`, PR #7) was published 2026-11-14 but not logged. 1.3.0 (stronger `/product-review` + `init --upgrade-skill product-review`) was built on this Mac on 2026-11-16 and never pushed.
+- Build, lint, and 55 tests pass. Pushed `958b634` and `cbd7ca4` to main. Tagged and pushed `v1.3.0`. `v1.2.0` tag already existed.
+- npm publish of 1.3.0: handed to Sohaib (Terminal).
 
 ### 2026-11-07
 
