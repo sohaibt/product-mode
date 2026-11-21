@@ -2,7 +2,7 @@
 
 ## RESUME HERE
 
-**State:** `product-mode@1.3.0` is tagged (`v1.3.0`) and pushed. Publish to npm is pending (Sohaib runs `npm publish` in Terminal). 1.2.0 (on npm since 2026-11-14) added `/product-review` (PR #7). 1.3.0 makes `/product-review` stronger for whole-product reviews and adds `product-mode init --upgrade-skill product-review`. Decision: `.product-mode/decisions/2026-11-07-slash-commands-via-init.md` (updates 2026-11-07, 11-14, 11-16).
+**State:** `product-mode@1.3.0` is on npm (tag `v1.3.0` pushed). 1.2.0 (on npm since 2026-11-14) added `/product-review` (PR #7). 1.3.0 makes `/product-review` stronger for whole-product reviews and adds `product-mode init --upgrade-skill product-review`. Decision: `.product-mode/decisions/2026-11-07-slash-commands-via-init.md` (updates 2026-11-07, 11-14, 11-16).
 
 **First thing next session:** confirm 1.3.0 is on npm (`npm view product-mode version`). Do the 2026-11-21 dogfood revisit: did Sohaib use `/preflight`, `/decision`, or `/product-review` in his own projects? Find out what caused the download jump (11 to 236/week). Stars keep dropping (209 to 176 to 162).
 
@@ -35,7 +35,7 @@ Note: npm login/publish must run in the Mac Terminal app, not via `!` (it needs 
 **Done:**
 - Caught up: 1.2.0 (`/product-review`, PR #7) was published 2026-11-14 but not logged. 1.3.0 (stronger `/product-review` + `init --upgrade-skill product-review`) was built on this Mac on 2026-11-16 and never pushed.
 - Build, lint, and 55 tests pass. Pushed `958b634` and `cbd7ca4` to main. Tagged and pushed `v1.3.0`. `v1.2.0` tag already existed.
-- npm publish of 1.3.0: handed to Sohaib (Terminal).
+- Published 1.3.0 to npm (first try E404 = not logged in; `npm login` fixed it).
 
 ### 2026-11-07
 
