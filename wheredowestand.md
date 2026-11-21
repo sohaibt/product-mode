@@ -4,7 +4,7 @@
 
 **State:** `product-mode@1.3.0` is on npm (tag `v1.3.0` pushed). 1.2.0 (on npm since 2026-11-14) added `/product-review` (PR #7). 1.3.0 makes `/product-review` stronger for whole-product reviews and adds `product-mode init --upgrade-skill product-review`. Decision: `.product-mode/decisions/2026-11-07-slash-commands-via-init.md` (updates 2026-11-07, 11-14, 11-16).
 
-**First thing next session:** confirm 1.3.0 is on npm (`npm view product-mode version`). Do the 2026-11-21 dogfood revisit: did Sohaib use `/preflight`, `/decision`, or `/product-review` in his own projects? Find out what caused the download jump (11 to 236/week). Stars keep dropping (209 to 176 to 162).
+**First thing next session:** do the 2026-11-21 dogfood revisit: did Sohaib use `/preflight`, `/decision`, or `/product-review` in his own projects? Find out what caused the download jump (11 to 236/week). Stars keep dropping (209 to 176 to 162).
 
 Next-session startup prompt:
 
@@ -12,7 +12,7 @@ Next-session startup prompt:
 Working on product-mode (github.com/sohaibt/product-mode, npm: product-mode).
 1. git fetch and compare to origin/main; pull --ff-only if behind.
 2. Read wheredowestand.md (RESUME HERE) and backlog.md.
-3. Check `npm view product-mode version` is 1.3.0. If not, remind me to publish from Terminal.
+3. Confirm `npm view product-mode version` shows 1.3.0 (verified live 2026-11-21 10:10 UTC).
 4. Check the numbers: `gh api repos/sohaibt/product-mode --jq .stargazers_count`,
    `gh api repos/sohaibt/product-mode/traffic/popular/referrers`, and
    `curl -s https://api.npmjs.org/downloads/point/last-week/product-mode`.
